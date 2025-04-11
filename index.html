@@ -14,6 +14,7 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #f9f9f9;
       color: #222;
+      line-height: 1.6;
     }
 
     /* HERO SECTION */
@@ -61,7 +62,6 @@
     border-radius: 10px;
     backdrop-filter: blur(1px);
     z-index: 0;
-    
     }
 
     .hero-text h1 {
@@ -85,6 +85,8 @@
     z-index: 0;
     border-radius: 5px;
     overflow: hidden;
+    transform: translateY(390px);
+    transition: transform 0.5s ease;
     }
 
     .hero-video video {
@@ -95,9 +97,10 @@
 
     /* CARD SECTION */
     .card-section {
-      
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
       padding: 50px 10%;
       background-color: #ffffff;
     }
@@ -107,8 +110,9 @@
       border: 1px solid #f97705;
       border-radius: 8px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-      padding: 20px;
-      width: 280px;
+      padding: 25px;
+      width: calc(33.333% - 30px);
+      min-width: 280px;
       transition: transform 0.3s ease;
     }
     
@@ -117,29 +121,150 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-      padding: 20px;
-      width: 280px;
+      padding: 25px;
+      width: calc(33.333% - 30px);
+      min-width: 280px;
       transition: transform 0.3s ease;
     }
 
     .top-card:hover {
-      transform: translateY(10px);
+      transform: translateY(-10px);
       box-shadow: 0 12px 24px rgba(101, 247, 205, 0.1);
     }
     
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
       box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     }
 
     .card h3 {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       color: #003566;
+      font-size: 1.3em;
     }
 
     .card p {
-      font-size: 0.95em;
+      font-size: 1em;
       color: #444;
+    }
+
+    /* TEST DRIVE FORM */
+    .test-drive-form {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+      padding: 60px 10%;
+      text-align: center;
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .test-drive-form h2 {
+      color: #003566;
+      margin-bottom: 30px;
+      font-size: 2em;
+    }
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group select {
+      flex: 1;
+      min-width: 200px;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .form-submit {
+      background: #f97705;
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .form-submit:hover {
+      background: #e06b00;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #003566;
+      color: white;
+      padding: 50px 10% 30px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-column h3 {
+      color: #f6e3b4;
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: #a0fcf7;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.5em;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+      font-size: 0.9em;
     }
 
     /* Responsive Adjustments */
@@ -158,11 +283,22 @@
       }
 
       .card-section {
-        
-        align-items: center;
         padding: 30px 5%;
       }
+
+      .card, .top-card {
+        width: 100%;
+      }
+
+      .form-container {
+        padding: 30px 20px;
+      }
     }
+
+    .hero-video:hover {
+      transform: scale(1.3);
+    }
+
   </style>
 </head>
 <body>
@@ -195,21 +331,95 @@
   <section class="card-section">
     <div class="top-card">
       <h3>Top Speed</h3>
-      <p>Reaches up to 220mph on open track with aerodynamic support.</p>
+      <p>Reaches up to 220mph on open track with aerodynamic support. Experience unprecedented performance with our advanced engineering.</p>
     </div>
     <div class="top-card">
       <h3>Acceleration</h3>
-      <p>0 to 60mph in just 3.0 seconds. The surge you feel is real.</p>
+      <p>0 to 60mph in just 3.0 seconds. The surge you feel is real, powered by our next-gen electric powertrain.</p>
     </div>
     <div class="top-card">
       <h3>Eco Mode</h3>
-      <p>Fuel-efficient and clean in city mode — go fast and green.</p>
+      <p>Fuel-efficient and clean in city mode — go fast and green with our sustainable energy solutions.</p>
     </div>
     <div class="card">
       <h3>Smart Interior</h3>
-      <p>Includes voice assistant, panoramic HUD, memory seats, and climate AI.</p>
+      <p>Includes voice assistant, panoramic HUD, memory seats, and climate AI for the ultimate driving experience.</p>
+    </div>
+    <div class="card">
+      <h3>Biometric Connection</h3>
+      <p>The car responds to your heartbeat and breathing, creating an intuitive connection between human and machine.</p>
+    </div>
+    <div class="card">
+      <h3>360° Experience</h3>
+      <p>With spherical wheels and omni-directional drive, experience movement in all directions seamlessly.</p>
     </div>
   </section>
+
+  <!-- TEST DRIVE FORM -->
+  <section class="test-drive-form">
+    <div class="form-container">
+      <h2>Schedule Your Test Drive</h2>
+      <form>
+        <div class="form-group">
+          <input type="text" placeholder="First Name" required>
+          <input type="text" placeholder="Last Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email Address" required>
+          <input type="tel" placeholder="Phone Number" required>
+        </div>
+        <div class="form-group">
+          <select required>
+            <option value="" disabled selected>Preferred Location</option>
+            <option>New York Showroom</option>
+            <option>Los Angeles Experience Center</option>
+            <option>Miami Dealership</option>
+            <option>Chicago Showroom</option>
+          </select>
+          <input type="date" placeholder="Preferred Date" required>
+        </div>
+        <button type="submit" class="form-submit">Request Test Drive</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>About Vrooom</h3>
+        <p>Pushing the boundaries of automotive technology and design since 2023. Our vision is to create the future of mobility.</p>
+        <div class="social-links">
+          <a href="#">FB</a>
+          <a href="#">TW</a>
+          <a href="#">IG</a>
+          <a href="#">YT</a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Models</a></li>
+          <li><a href="#">Technology</a></li>
+          <li><a href="#">Owners</a></li>
+          <li><a href="#">Sustainability</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <ul>
+          <li>Vrooom Headquarters</li>
+          <li>123 Future Drive</li>
+          <li>Silicon Valley, CA 94000</li>
+          <li>info@vrooom.com</li>
+          <li>+1 (800) VRM-CAR</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2023 Vrooom Automotive. All rights reserved. | Privacy Policy | Terms of Service</p>
+    </div>
+  </footer>
 
 </body>
 </html>
